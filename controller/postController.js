@@ -1,59 +1,72 @@
-const posts = [
-  {
-    id: 1,
-    title: "Corruption in Kenya",
-    content: "Post one",
-    author: "Muthama Caleb",
-    date: new Date(),
-    tags: "Politics",
-  },
-  {
-    id: 2,
-    title: "Floods in Kenya",
-    content: "Post two",
-    author: "Muthama Caleb",
-    date: new Date(),
-    tags: "Politics",
-  },
-  {
-    id: 3,
-    title: "Adani Group in Kenya",
-    content: "Post Three.",
-    author: "Muthama Caleb",
-    date: new Date(),
-    tags: "Politics",
-  },
-];
+import Blog from "../models/blogSchema.js";
 
 //@desc  Get all posts
 //route  GET /api/posts
 //Private
-const getAllPosts = (req, res) => {
-  res.status(200).json(posts);
+const getAllPosts = async (req, res) => {
+  try {
+    const posts = await Blog.find();
+    res.status(200).json(posts);
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
 //@desc  Create a posts
 //route  POST /api/posts
 //Private
-const createPost = (req, res) => {
-  if (!req.body.content) {
-    res.status(400).json({ message: "Please add content for the blog" });
+const createPost = async (req, res) => {
+  try {
+    const post = await Blog.create({
+      title: req.body.title,
+      author: req.body.author,
+      content: req.body.content,
+      tag: req.body.tag,
+    });
+
+    res.status(201).json(post);
+  } catch (error) {
+    console.log(error.message);
   }
-  res.status(200).json({ message: "Created a post" });
 };
 
 //@desc  PUT a posts
 //route  PUT /api/posts/:id
 //Private
-const updatePost = (req, res) => {
-  res.status(200).json({ message: `Updated post: ${req.params.id}` });
+const updatePost = async (req, res) => {
+  try {
+    const blogId = await Blog.findById(req.params.id);
+
+    if (!blogId) {
+      res.status(400).json({ message: `Blog of id:${blogId} was not found` });
+    }
+
+    const updatedPost = await Blog.findByIdAndUpdate(blogId, req.body, {
+      new: true,
+    });
+
+    res.status(200).json(updatedPost);
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
 //@desc  Delete a posts
 //route  DELETE /api/posts/:id
 //Private
-const deletePost = (req, res) => {
-  res.status(200).json({ message: `Updated post: ${req.params.id}` });
+const deletePost = async (req, res) => {
+  try {
+    const blogId = await Blog.findById(req.params.id);
+
+    if (!blogId) {
+      res.status(400).json({ message: `Blog of id:${blogId} was not found` });
+    }
+
+    const deletedPost = await Blog.deleteOne(blogId);
+    res.status(200).json(deletedPost);
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
 export { getAllPosts, createPost, updatePost, deletePost };
