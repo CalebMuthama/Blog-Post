@@ -5,11 +5,14 @@
     <h2 class="text-center text-3xl font-bold my-5">Browsing Category</h2>
     <div class="grid grid-flow-row md:grid-cols-2 gap-5">
       <div class="flex flex-col bg-white rounded-lg">
-        <img
-          src="../assets/images/bike.jpg"
-          alt="image"
-          class="h-56 w-auto object-cover rounded-lg rounded-b-none"
-        />
+        <a href="#">
+          <img
+            src="../assets/images/bike.jpg"
+            alt="image"
+            class="h-56 w-screen object-cover rounded-lg rounded-b-none"
+          />
+        </a>
+
         <div class="px-5">
           <h3 class="font-bold mt-3">Effects of drugs</h3>
           <p>
@@ -27,11 +30,14 @@
         </div>
       </div>
       <div class="flex flex-col bg-white rounded-lg">
-        <img
-          src="../assets/images/bike.jpg"
-          alt="image"
-          class="h-56 w-auto object-cover rounded-lg rounded-b-none"
-        />
+        <a href="#">
+          <img
+            src="../assets/images/bike.jpg"
+            alt="image"
+            class="h-56 w-screen object-cover rounded-lg rounded-b-none"
+          />
+        </a>
+
         <div class="px-5">
           <h3 class="font-bold mt-3">Effects of drugs</h3>
           <p>
@@ -49,11 +55,14 @@
         </div>
       </div>
       <div class="flex flex-col bg-white rounded-lg">
-        <img
-          src="../assets/images/bike.jpg"
-          alt="image"
-          class="h-56 w-auto object-cover rounded-lg rounded-b-none"
-        />
+        <a href="#">
+          <img
+            src="../assets/images/bike.jpg"
+            alt="image"
+            class="h-56 w-screen object-cover rounded-lg rounded-b-none"
+          />
+        </a>
+
         <div class="px-5">
           <h3 class="font-bold mt-3">Effects of drugs</h3>
           <p>
@@ -72,11 +81,14 @@
       </div>
 
       <div class="flex flex-col bg-white rounded-lg">
-        <img
-          src="../assets/images/bike.jpg"
-          alt="image"
-          class="h-56 w-auto object-cover rounded-lg rounded-b-none"
-        />
+        <a href="#">
+          <img
+            src="../assets/images/bike.jpg"
+            alt="image"
+            class="h-56 w-screen object-cover rounded-lg rounded-b-none"
+          />
+        </a>
+
         <div class="px-5">
           <h3 class="font-bold mt-3">Effects of drugs</h3>
           <p>
