@@ -1,4 +1,39 @@
-<script setup></script>
+<script setup>
+import { ref, watch } from "vue";
+import { useRoute } from "vue-router";
+import router from "@/router";
+import lodash from "lodash";
+
+const search = ref("");
+const route = useRoute();
+
+watch(
+  search,
+  lodash.debounce(async (value) => {
+    const newRoute = {
+      name: "blogs",
+    };
+
+    if (search.value !== "") {
+      newRoute.query = {
+        search: search.value,
+      };
+    }
+
+    router.push(newRoute);
+    console.log(value);
+  }, 700),
+);
+
+//Watch for chnages in route query parameter search;
+watch(
+  () => route.query.search,
+  (value) => {
+    search.value = value;
+  },
+  { immediate: true },
+);
+</script>
 
 <template>
   <form class="hidden md:flex">
@@ -7,6 +42,7 @@
     >
       <i class="pi pi-search w-5 h-5 absolute ml-3"></i>
       <input
+        v-model="search"
         type="text"
         name="search"
         placeholder="Search..."

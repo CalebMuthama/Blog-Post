@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from "vue";
 import Logo from "./Logo.vue";
-import SearchBar from "./SearchBar.vue";
+// import SearchBar from "./SearchBar.vue";
 
 const isOpen = ref(false);
 
@@ -46,13 +46,15 @@ const links = [
             >{{ link.name }}</a
           >
         </li>
-        <SearchBar />
-        <RouterLink
-          to="/blogs/add"
-          class="bg-white text-black rounded-lg hover:bg-[#dfe2ec] py-2 px-2 transition duration-300 ease-in-out"
-        >
-          Add Blog
-        </RouterLink>
+        <!-- <SearchBar /> -->
+        <div class="flex items-center justify-center">
+          <RouterLink
+            to="/blogs/add"
+            class="bg-white rounded-full text-black hover:bg-[#dfe2ec] py-2 px-2 transition duration-300 ease-in-out"
+          >
+            <i class="pi pi-plus-circle"> Add Blog </i>
+          </RouterLink>
+        </div>
       </ul>
     </div>
   </nav>

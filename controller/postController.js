@@ -5,10 +5,29 @@ import Blog from "../models/blogSchema.js";
 //Private
 const getAllPosts = async (req, res) => {
   try {
-    const posts = await Blog.find();
+    let posts;
+    const search = req.query.search;
+    if (search) {
+      posts = await Blog.find({
+        $or: [
+          { title: { $regex: search, $options: "i" } },
+          { author: { $regex: search, $options: "i" } },
+          { category: { $regex: search, $options: "i" } },
+        ],
+      });
+    } else {
+      posts = await Blog.find().limit(10);
+    }
+
+
+    
+
     res.status(200).json(posts);
   } catch (error) {
     console.log(error.message);
+    return res.status(500).json({
+      error: "An error occured while fetching the blogs.",
+    });
   }
 };
 
@@ -44,11 +63,13 @@ const createPost = async (req, res) => {
       author: req.body.author,
       content: req.body.content,
       date: req.body.date,
-      category: req.body.tag,
+      category: req.body.category,
     });
-
     res.status(201).json(post);
   } catch (error) {
+    res.status(500).json({
+      error: "An error occured while trying to create a blog.",
+    });
     console.log(error.message);
   }
 };

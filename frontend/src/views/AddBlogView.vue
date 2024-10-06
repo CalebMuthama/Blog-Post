@@ -2,12 +2,8 @@
 import TextEditor from "../components/TextEditor.vue";
 import DOMPurify from "dompurify";
 import router from "@/router";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import BlogsServices from "@/services/BlogsServices";
-import { useRoute } from "vue-router";
-
-const route = useRoute();
-const blogId = route.params.id;
 
 const form = reactive({
   title: "",
@@ -18,12 +14,14 @@ const form = reactive({
   category: "",
 });
 
-const resetForm = () => {
-  form.title = "";
-  (form.imageURL = ""), (form.content = ""), (form.author = "");
-  form.date = "";
-  form.category = "";
-};
+const errorMessage = ref(null);
+
+// const resetForm = () => {
+//   form.title = "";
+//   (form.imageURL = ""), (form.content = ""), (form.author = "");
+//   form.date = "";
+//   form.category = "";
+// };
 
 const handleSubmit = async () => {
   const santizedContent = DOMPurify.sanitize(form.content);
@@ -38,10 +36,11 @@ const handleSubmit = async () => {
 
   try {
     const response = await BlogsServices.createPost(newBlog);
-    router.push(`/blogs/${blogId}`);
+    router.push("/blogs/");
     console.log(response.data);
-    resetForm();
+    // resetForm();
   } catch (error) {
+    errorMessage.value = error.response.data.error;
     console.log(error.message);
   }
 };
@@ -123,7 +122,7 @@ const handleSubmit = async () => {
           </div>
 
           <div class="mb-4">
-            <label for="date" class="block text-gray-700 font-bold mb-2">
+            <label for="category" class="block text-gray-700 font-bold mb-2">
               Category:
             </label>
             <select
@@ -138,6 +137,10 @@ const handleSubmit = async () => {
               <option value="Books">Books</option>
               <option value="Poesy">Poesy</option>
             </select>
+          </div>
+
+          <div v-if="errorMessage" class="text-red-500">
+            {{ errorMessage }}
           </div>
           <button
             type="submit"

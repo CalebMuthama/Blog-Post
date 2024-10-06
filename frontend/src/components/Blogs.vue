@@ -1,12 +1,16 @@
 <script setup>
-import { reactive, onMounted } from "vue";
-import { RouterLink } from "vue-router";
+import { reactive, onMounted, watch } from "vue";
+import { RouterLink, useRoute } from "vue-router";
 import BeatLoader from "vue-spinner/src/BeatLoader.vue";
 import BlogsServices from "@/services/BlogsServices";
+import SearchBar from "./SearchBar.vue";
+
+const route = useRoute();
 
 const state = reactive({
   articles: [],
   isLoading: true,
+  isError: null,
 });
 
 const stripHtml = (html) => {
@@ -24,15 +28,39 @@ const shortenContent = (content, maxLength) => {
 
 onMounted(async () => {
   try {
-    const response = await BlogsServices.getAllBlogs();
+    const response = await BlogsServices.getAllPosts();
     console.log(response.data);
     state.articles = response.data;
   } catch (error) {
-    console.log(error.message);
+
+    if(error.response && error.response.data && error.response.data.error) {
+    state.isError = error.response?.data?.error
+    } else {
+      state.isError = "Unexpected error occured"
+    }
+    console.log("Hello error", error.message);
   } finally {
     state.isLoading = false;
   }
 });
+
+watch(
+  () => route.query.search,
+  async (value) => {
+    try {
+      let response;
+      if (value) {
+        //Fetch the blog based on the search query
+        response = await BlogsServices.getAllPosts(value);
+      } else {
+        response = await BlogsServices.getAllPosts();
+      }
+      state.articles = response.data;
+    } catch (error) {
+      console.log(error.message);
+    }
+  },
+);
 </script>
 
 <template>
@@ -41,8 +69,15 @@ onMounted(async () => {
       <h2 class="text-center text-3xl font-bold my-5">
         Learn about the latest technologies
       </h2>
+      <SearchBar />
       <div v-if="state.isLoading" class="text-4xl py-6 text-center">
         <BeatLoader />
+      </div>
+      <div
+        v-else-if="state.isError"
+        class="text-red-500 text-center text-2xl mt-10"
+      >
+        {{ state.isError }}
       </div>
       <div v-else class="grid grid-flow-row md:grid-cols-3 gap-5">
         <div
