@@ -1,8 +1,20 @@
 {
   "compilerOptions": {
+    "target": "es6", // Specify ECMAScript target version
+    "module": "commonjs", // Specify module code generation
+    "baseUrl": "./", // Base directory to resolve non-relative module names
+    "checkJs": true, // Enable type checking for JavaScript files
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ] // Configure path aliasing
     }
   },
-  "exclude": ["node_modules", "dist"]
+  "include": [
+    "src/**/*" // Specify files to include in the project
+  ],
+  "exclude": [
+    "node_modules", // Exclude the node_modules directory
+    "dist" // Exclude the build directory
+  ]
 }

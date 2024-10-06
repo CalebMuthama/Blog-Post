@@ -12,6 +12,27 @@ const getAllPosts = async (req, res) => {
   }
 };
 
+//Get a single post based on the blogID
+
+const getPost = async (req, res) => {
+  try {
+    const blogId = req.params.id;
+
+    const blog = await Blog.findById(blogId);
+    if (!blog) {
+      return res.status(400).json({
+        error: `No blog matches the ID: ${blogId}`,
+      });
+    }
+
+    res.status(200).json(blog);
+  } catch (error) {
+    res.status(500).json({
+      error: "An error occured while fetching this blog post.",
+    });
+  }
+};
+
 //@desc  Create a posts
 //route  POST /api/posts
 //Private
@@ -19,9 +40,11 @@ const createPost = async (req, res) => {
   try {
     const post = await Blog.create({
       title: req.body.title,
+      imageURL: req.body.imageURL,
       author: req.body.author,
       content: req.body.content,
-      tag: req.body.tag,
+      date: req.body.date,
+      category: req.body.tag,
     });
 
     res.status(201).json(post);
@@ -69,4 +92,4 @@ const deletePost = async (req, res) => {
   }
 };
 
-export { getAllPosts, createPost, updatePost, deletePost };
+export { getAllPosts, getPost, createPost, updatePost, deletePost };

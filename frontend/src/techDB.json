@@ -1,0 +1,118 @@
+{
+  "blogs": [
+    {
+      "image": "seo.jpg",
+      "title": "Learn what SEO is about and how to leverage it's power on your apps or blogs",
+      "content": {
+        "rendered": "Tech is an ever change field, where you need to keep updating your skills. With new frameworks emerging everyday. So you will learn new emerging technologies here everyday. And be up to date. "
+      },
+      "author": "Muthama Caleb",
+      "date": "2024-09-17",
+      "category": "Tech",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "image": "vue.png",
+      "title": "New Javascript framework",
+      "content": {
+        "rendered": "Tech is an ever change field, where you need to keep updating your skills. With new frameworks emerging everyday. So you will learn new emerging technologies here everyday. And be up to date. "
+      },
+      "author": "Muthama Caleb",
+      "date": "Sept 11, 2024",
+      "category": "Food",
+      "likes": "10"
+    },
+    {
+      "id": "3",
+      "image": "node_logo.png",
+      "title": "A new and easier way to setup your Node Project",
+      "content": {
+        "rendered": "Tech is an ever change field, where you need to keep updating your skills. With new frameworks emerging everyday. So you will learn new emerging technologies here everyday. And be up to date. "
+      },
+      "author": "Muthama Caleb",
+      "date": "Sept 11, 2024",
+      "category": "Travel",
+      "likes": "16"
+    },
+    {
+      "id": "4",
+      "image": "Kali_Linux.jpg",
+      "title": "Using Kali Linux for pentesting",
+      "content": {
+        "rendered": "Tech is an ever change field, where you need to keep updating your skills. With new frameworks emerging everyday. So you will learn new emerging technologies here everyday. And be up to date. "
+      },
+      "author": "Muthama Caleb",
+      "date": "Sept 11, 2024",
+      "category": "Books",
+      "likes": "10"
+    },
+    {
+      "id": "5",
+      "image": "vim.png",
+      "title": "Learn vim motions in 10 easy steps",
+      "content": {
+        "rendered": "Tech is an ever change field, where you need to keep updating your skills. With new frameworks emerging everyday. So you will learn new emerging technologies here everyday. And be up to date. "
+      },
+      "author": "Muthama Caleb",
+      "date": "Sept 11, 2024",
+      "category": "Tech",
+      "likes": "20"
+    },
+    {
+      "id": "6",
+      "image": "mongo_leaf.png",
+      "title": "Learn how to intergrate MongoDB with your Vue App",
+      "content": {
+        "rendered": "Tech is an ever change field, where you need to keep updating your skills. With new frameworks emerging everyday. So you will learn new emerging technologies here everyday. And be up to date. "
+      },
+      "author": "Muthama Caleb",
+      "date": "Sept 11, 2024",
+      "category": "Javascript",
+      "likes": "1"
+    },
+    {
+      "id": "7",
+      "image": "jwt_dark.png",
+      "title": "Learn authentication and authurization with JWT",
+      "content": {
+        "rendered": "Tech is an ever change field, where you need to keep updating your skills. With new frameworks emerging everyday. So you will learn new emerging technologies here everyday. And be up to date. "
+      },
+      "author": "Muthama Caleb",
+      "date": "Sept 11, 2024",
+      "category": "Python",
+      "likes": "25"
+    },
+    {
+      "title": "Testing the tip tap",
+      "content": {
+        "rendered": "<h1 style=\"text-align: center\">The journey of a young Boy</h1><p>There was once a boy who lived in the distant plains of Sakwa. He lived there with his parents but he deep down he knew he was destined for greatness and would not be tied down to one place like a goat. He had to find a way to the Great City of Kisuma, he had heard stories about it. How tall building were. How beautiful women are with theirs lovely succulent thighs out. </p><p>He had this vivid image in his brain how Kisuma looked like and he would do anything in his power to go there. So he made a list of things he shall do once he sets his foot there: </p><ul><li><p>Sleep with the local whores.</p></li><li><p>Go into the drinking dens and sample the brew everyone talked about.</p></li><li><p>Go for a swim in the great Kisuma lake.</p></li></ul>"
+      },
+      "author": "Muthama Caleb",
+      "date": "2024-09-17",
+      "category": "Food",
+      "id": "a241"
+    },
+    {
+      "title": "Tales of a mad man",
+      "content": {
+        "rendered": "<h1 style=\"text-align: center\"> Life of a bachelor</h1><p>Well there is nothing much to do. You wake up at 11am with matorotoro on you eyes, you can't even see your next steep but you are grateful for being alive. You look at your phone lazily and see how how people are the 5am club and the see you as lazy but the don't know you sleep way pas midnight debugging code that would not tii watho.</p><p>So you take a pen to write down the things you will do that day:</p><ul><li><p>Kuchoma kwa mathe.</p></li><li><p>Kukula kwa mathe wa kiwaru akifunguwa jioni</p></li><li><p>Nunuwa kasukari kaa ten, kangumu ya thirty and majani ya 10 and call it breakfast.</p></li><li><p>Alafu jioni nunuwa skuma ya thirty upike ugali and you call it a day.</p></li></ul><blockquote><p style=\"text-align: center\">All we have is a dream: Dream ya kutoka kwa block</p></blockquote><p>That's the life of a bachelor; a boring one but full of peace. We give thanks everyday, Alhamdulillah.</p><p></p>"
+      },
+      "author": "Muthma Caleb",
+      "date": "2024-09-18",
+      "category": "Travel",
+      "id": "73a2"
+    },
+    {
+      "id": "840c",
+      "image": "wahu.jpg",
+      "title": "BED ME LOVE",
+      "content": {
+        "rendered": "<p>Bed me, oh love </p><p> A break I'd want to have</p><p>I lose tranquil on thought: my beloved</p><p>Spasms ran through my head</p><p>From spine root to the core: thalamus</p>"
+      },
+      "author": "ISAAC WAHU NDUNGU",
+      "date": "2024-09-19",
+      "category": "Poesy"
+    }
+  ]
+}

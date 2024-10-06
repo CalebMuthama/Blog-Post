@@ -10,18 +10,16 @@ const toggleMenu = () => {
 };
 
 const links = [
-  { name: "Home", link: "#" },
-  { name: "Travel", link: "#" },
-  { name: "Food", link: "#" },
-  { name: "Books", link: "#" },
-  { name: "About", link: "#" },
-  { name: "Contact", link: "#" },
+  { name: "Home", link: "/" },
+  { name: "Blogs", link: "/blogs" },
+  { name: "About", link: "/about" },
+  { name: "Contact", link: "/contact" },
 ];
 </script>
 
 <template>
-  <nav class="container mx-auto">
-    <div class="px-6 md:flex justify-between items-center">
+  <nav class="text-white bg-[#111111]">
+    <div class="px-6 py-2 md:flex justify-between items-center">
       <Logo />
 
       <span
@@ -34,7 +32,7 @@ const links = [
         ></i>
       </span>
       <ul
-        class="bg-white text-black text-1xl mt-10 md:mt-0 md:bg-transparent rounded-lg md:flex md:items-center md:space-x-12 md:static absolute w-full md:w-auto top-14 duration-200 ease-in"
+        class="bg-white list-none text-1xl mt-10 md:mt-0 md:bg-transparent rounded-lg md:flex md:items-center md:space-x-12 md:static absolute w-full md:w-auto top-14 duration-200 ease-in"
         :class="[isOpen ? 'left-0' : 'left-[-100000000px]']"
       >
         <li
@@ -44,11 +42,17 @@ const links = [
         >
           <a
             :href="link.link"
-            class="md:hover:text-gray-600 md:hover:border-b-4 hover:border-gray-500 hover:text-gray-500"
+            class="text-black md:text-white md:hover:text-gray-600 md:hover:border-b-4 hover:border-gray-500 hover:text-gray-500"
             >{{ link.name }}</a
           >
         </li>
         <SearchBar />
+        <RouterLink
+          to="/blogs/add"
+          class="bg-white text-black rounded-lg hover:bg-[#dfe2ec] py-2 px-2 transition duration-300 ease-in-out"
+        >
+          Add Blog
+        </RouterLink>
       </ul>
     </div>
   </nav>

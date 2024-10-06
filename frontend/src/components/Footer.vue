@@ -49,7 +49,7 @@
             class="border-gray-500 h-[2rem] w-auto pl-2 rounded-md border-none ring-2 ring-blue-300 shadow-lg focus:ring-blue-500 focus:ring-2 focus:outline-none placeholder-gray-500 font-semibold"
           />
           <button
-            class="h-[2rem] w-auto px-3 bg-white text-black ml-3 rounded-md hover:bg-gray-500 hover:text-white"
+            class="h-[2rem] w-auto px-4 bg-white text-black ml-3 rounded-md hover:bg-gray-500 hover:text-white transition duration-300 ease-in-out"
           >
             Submit
           </button>
